@@ -47,7 +47,12 @@ class MinStack(object):
             return self.min
 
     def updateAndFindMin(self):
-        ary = sorted(self.ary)
-        self.min = ary[0]
+        _min = self.ary[0]
+        for x in self.ary:
+            if _min > x:
+                _min = x
+
+        self.min = _min
         self.need_update = False
         return self.min
+
